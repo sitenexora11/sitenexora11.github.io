@@ -1,0 +1,3420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090c">
+<title>Nexora — Bienvenue</title>
+
+<style>
+/* =================================
+   1. CONFIGURATION GÉNÉRALE
+================================= */
+
+:root {
+    --bg: #08090c;
+    --panel: rgba(255,255,255,0.045);
+    --panel-hover: rgba(255,255,255,0.085);
+    --text: #f5f5f7;
+    --muted: #9899a3;
+    --border: rgba(255,255,255,0.11);
+    --accent: #ffffff;
+    --radius: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Fond lumineux subtil.
+   Plus tard, remplace le gradient par ton image si tu le souhaites. */
+
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background: #00152E;
+        ),
+        linear-gradient(
+            135deg,
+            #031329 0%,
+            #041a36 48%,
+            #061b35 75%,
+            #031329 100%
+        );
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(8, 9, 12, 0.05),
+        rgba(8, 9, 12, 0.28)
+    );
+    pointer-events: none;
+}
+/* =================================
+   2. BARRE DE NAVIGATION
+================================= */
+
+.site-header {
+    width: 100%;
+    padding: 18px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.account-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+.account-button {
+    min-height: 39px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(90, 155, 255, 0.35);
+    background: rgba(40, 115, 235, 0.12);
+    color: #8bbcff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.account-button:hover {
+    background: rgba(40, 115, 235, 0.25);
+    border-color: rgba(110, 175, 255, 0.75);
+    color: #c5e0ff;
+    transform: translateY(-1px);
+}
+
+.account-button:active {
+    transform: scale(0.97);
+}
+
+.signup-button {
+    background: #2878ee;
+    color: white;
+    border-color: #2878ee;
+    box-shadow: 0 4px 20px rgba(40, 120, 238, 0.2);
+}
+
+.signup-button:hover {
+    background: #428bfa;
+    color: white;
+    border-color: #428bfa;
+}
+
+
+header {
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px;
+    max-width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(18,19,23,0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 10px 45px rgba(0,0,0,0.18);
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 17px;
+    min-height: 42px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: #b4b5be;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.28s ease,
+        color 0.28s ease,
+        border-color 0.28s ease,
+        transform 0.22s ease;
+}
+
+.nav-button:hover {
+    color: white;
+    background: rgba(255,255,255,0.07);
+}
+
+.nav-button:active {
+    transform: scale(0.95);
+}
+
+.nav-button.active {
+    background: #f3f3f5;
+    color: #101115;
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 2px 12px rgba(255,255,255,0.07);
+}
+
+.nav-button svg {
+.pro-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 6px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #e8d7a1, #b99a55);
+    color: #17140d;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    line-height: 1.2;
+    box-shadow: 0 0 12px rgba(218, 187, 111, 0.12);
+}
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* =================================
+   3. CONTENU PRINCIPAL
+================================= */
+
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    display: none;
+    width: 100%;
+    flex: 1;
+    animation: pageIn 0.5s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(13px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* =================================
+   4. ACCUEIL
+================================= */
+
+.home {
+    width: 100%;
+    min-height: 650px;
+    padding: 80px 24px 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #b7b8c1;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+    content: "";
+    width: 23px;
+    height: 1px;
+    background: rgba(255,255,255,0.32);
+}
+
+.hero-title {
+    font-size: clamp(58px, 11vw, 116px);
+    line-height: 0.98;
+    letter-spacing: -0.085em;
+    font-weight: 650;
+    text-wrap: balance;
+    margin-bottom: 28px;
+}
+
+.hero-title span {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 12px;
+    text-decoration-color: rgba(255,255,255,0.72);
+}
+
+.hero-description {
+    max-width: 570px;
+    color: #a8a9b3;
+    font-size: clamp(15px, 2vw, 18px);
+    line-height: 1.85;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Boutons */
+
+.button {
+    min-height: 49px;
+    padding: 0 23px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+        transform 0.22s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.button svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+}
+
+.button:hover svg {
+    transform: translateX(3px);
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button-primary {
+    color: #101115;
+    background: #f5f5f7;
+    box-shadow: 0 5px 25px rgba(255,255,255,0.06);
+}
+
+.button-primary:hover {
+    background: white;
+    box-shadow: 0 8px 32px rgba(255,255,255,0.13);
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    color: #eeeef1;
+    background: rgba(255,255,255,0.045);
+    border-color: rgba(255,255,255,0.16);
+}
+
+.button-secondary:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+/* Petit indicateur en bas de l'accueil */
+
+.scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #777984;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.scroll-line {
+    width: 30px;
+    height: 1px;
+    background: #555761;
+}
+
+/* =================================
+   5. PAGES EN CONSTRUCTION
+================================= */
+
+.coming-soon {
+    width: 100%;
+    flex: 1;
+    min-height: 560px;
+    padding: 80px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.soon-card {
+    width: min(100%, 650px);
+    padding: 62px 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.018)
+    );
+    box-shadow: 0 25px 100px rgba(0,0,0,0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.soon-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.055);
+    color: #eeeeF3;
+}
+
+.soon-icon svg {
+    width: 25px;
+    height: 25px;
+}
+
+.soon-label {
+    color: #a6a7b0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+}
+
+.soon-card h1 {
+    font-size: clamp(34px, 6vw, 55px);
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.soon-card p {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    color: #d3d3da;
+    background: rgba(255,255,255,0.035);
+    font-size: 11px;
+    letter-spacing: 0.3px;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #b9bac3;
+    box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+
+/* =================================
+   6. FOOTER
+================================= */
+
+footer {
+    width: 100%;
+    padding: 24px 32px;
+    border-top: 1px solid rgba(255,255,255,0.09);
+    background: rgba(7,8,11,0.55);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.footer-inner {
+    width: min(100%, 1180px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.footer-copy {
+    color: #777984;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.footer-copy strong {
+    color: #c4c5cd;
+    font-weight: 600;
+}
+
+.footer-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-label {
+    margin-right: 5px;
+    color: #a2a3ad;
+    font-size: 11px;
+}
+
+.social-link {
+    width: 37px;
+    height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8b9c2;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.035);
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.social-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.28);
+    transform: translateY(-3px);
+}
+
+.social-link svg {
+    width: 17px;
+    height: 17px;
+}
+
+.footer-email {
+    color: #b8b9c2;
+    text-decoration: none;
+    font-size: 11px;
+    transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+    color: white;
+}
+
+/* =================================
+   7. ACCESSIBILITÉ
+================================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =================================
+   8. ADAPTATION AUX PETITS ÉCRANS
+================================= */
+
+@media (max-width: 1050px) {
+    header {
+        padding: 20px 15px 0;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        border-radius: 25px;
+        max-width: 850px;
+    }
+
+    .nav-button {
+        padding: 11px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 620px) {
+    header {
+        padding: 14px 10px 0;
+    }
+
+    .navigation {
+        width: 100%;
+        gap: 4px;
+        padding: 6px;
+        border-radius: 22px;
+    }
+
+    .nav-button {
+        flex: 1 1 calc(33.333% - 6px);
+        padding: 10px 5px;
+        min-height: 40px;
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .nav-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .home {
+        min-height: 580px;
+        padding: 75px 20px 90px;
+    }
+
+    .eyebrow {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-bottom: 27px;
+    }
+
+    .hero-title {
+        font-size: clamp(52px, 16vw, 80px);
+        margin-bottom: 25px;
+    }
+
+    .hero-title span {
+        text-underline-offset: 8px;
+        text-decoration-thickness: 2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .button {
+        min-height: 46px;
+        padding: 0 17px;
+        font-size: 12px;
+    }
+
+    .coming-soon {
+        min-height: 470px;
+        padding: 55px 16px;
+    }
+
+    .soon-card {
+        padding: 45px 20px;
+        border-radius: 25px;
+    }
+
+    footer {
+        padding: 22px 18px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 17px;
+    }
+
+    .footer-center {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+.site-header {
+    padding: 12px 10px 0;
+    gap: 12px;
+}
+
+.account-actions {
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.account-button {
+    padding: 0 11px;
+    font-size: 11px;
+}
+
+.navigation {
+    width: 100%;
+}
+
+}
+
+/* NEXORA PRO */
+
+.pro-page {
+    width: 100%;
+    padding: 75px 24px 100px;
+    text-align: center;
+    animation: pageIn 0.5s ease both;
+}
+
+.pro-eyebrow,
+.benefits-eyebrow {
+    color: #d9c28c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pro-crown {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin-right: 7px;
+    border: 1px solid rgba(217,194,140,.35);
+    border-radius: 9px;
+    background: rgba(217,194,140,.08);
+}
+
+.pro-title {
+    margin: 24px 0 20px;
+    font-size: clamp(42px, 7vw, 76px);
+    font-weight: 650;
+    letter-spacing: -0.065em;
+    line-height: 1.06;
+}
+
+.pro-title span {
+    color: #c6b17c;
+}
+
+.pro-description {
+    max-width: 510px;
+    margin: 0 auto 38px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.price-card {
+    width: min(100%, 410px);
+    margin: 0 auto;
+    padding: 29px;
+    text-align: left;
+    border: 1px solid rgba(217,194,140,.28);
+    border-radius: 27px;
+    background:
+        radial-gradient(ellipse at top right,
+            rgba(178,148,80,.12), transparent 65%),
+        rgba(255,255,255,.045);
+    box-shadow: 0 25px 90px rgba(0,0,0,.22);
+    backdrop-filter: blur(18px);
+}
+
+.price-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.price-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #d8d8df;
+}
+
+.price-tag {
+    padding: 5px 8px;
+    border: 1px solid rgba(217,194,140,.3);
+    border-radius: 7px;
+    color: #d9c28c;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.price {
+    margin-top: 28px;
+}
+
+.price-number {
+    font-size: 48px;
+    font-weight: 650;
+    letter-spacing: -2.5px;
+}
+
+.price-note {
+    margin-top: 7px;
+    color: #92939e;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.buy-button {
+    width: 100%;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #e5d3a0, #c1a45e);
+    color: #19150b;
+    box-shadow: 0 7px 25px rgba(193,164,94,.12);
+}
+
+.buy-button:hover {
+    background: linear-gradient(135deg, #f1e1b3, #d4b874);
+    transform: translateY(-2px);
+}
+
+.buy-notice {
+    margin-top: 18px;
+    text-align: center;
+    color: #e4d5ab;
+    font-size: 13px;
+}
+
+.benefits-section {
+    width: min(100%, 1000px);
+    margin: 95px auto 0;
+}
+
+.benefits-section h2 {
+    margin: 17px 0 15px;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: -1.5px;
+}
+
+.benefits-intro {
+    max-width: 510px;
+    margin: 0 auto 32px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.benefit-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 21px;
+    background: rgba(255,255,255,.035);
+    transition: transform .25s ease,
+                background .25s ease,
+                border-color .25s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,.065);
+    border-color: rgba(217,194,140,.28);
+}
+
+.benefit-number {
+    color: #c6b17c;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.benefit-card h3 {
+    margin: 19px 0 9px;
+    font-size: 16px;
+}
+
+.benefit-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media (max-width: 620px) {
+    .pro-page {
+        padding: 55px 17px 70px;
+    }
+
+    .price-card {
+        padding: 23px;
+    }
+
+    .benefits-section {
+        margin-top: 65px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CONNEXION ET INSCRIPTION */
+
+.auth-page {
+    width: 100%;
+    flex: 1;
+    min-height: 560px;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    width: min(100%, 460px);
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: 27px;
+    background: rgba(18,19,26,.78);
+    box-shadow: 0 25px 90px rgba(0,0,0,.25);
+    backdrop-filter: blur(20px);
+}
+
+.auth-eyebrow {
+    color: #8bbcff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 22px;
+}
+
+.auth-card h1 {
+    font-size: clamp(30px, 5vw, 40px);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.auth-description {
+    margin: 14px 0 28px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.auth-card label {
+    margin-top: 7px;
+    color: #d8d9e0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.auth-card input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 12px;
+    background: rgba(255,255,255,.045);
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+    transition: border-color .2s ease,
+                background .2s ease;
+}
+
+.auth-card input::placeholder {
+    color: #777984;
+}
+
+.auth-card input:focus {
+    border-color: #5598ff;
+    background: rgba(255,255,255,.065);
+}
+
+.auth-submit {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    border: 1px solid #2878ee;
+    border-radius: 12px;
+    background: #2878ee;
+    color: white;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background .2s ease,
+                transform .2s ease;
+}
+
+.auth-submit:hover {
+    background: #428bfa;
+    transform: translateY(-1px);
+}
+
+.auth-submit:active {
+    transform: scale(.98);
+}
+
+.auth-message {
+    margin-top: 18px;
+    color: #a9caff;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@media (max-width: 620px) {
+    .auth-page {
+        padding: 40px 16px;
+    }
+
+    .auth-card {
+        padding: 27px 21px;
+    }
+}
+
+/* LOGO NEXORA */
+
+.nexora-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: clamp(46px, 9vw, 94px);
+    font-weight: 500;
+    letter-spacing: 0.13em;
+    line-height: 1.2;
+    color: #f5f7ff;
+    text-shadow: 0 0 20px rgba(215, 230, 255, 0.12);
+    margin-bottom: 28px;
+}
+
+
+.nexora-logo .nexora-o {
+    display: inline-block;
+    position: relative;
+    color: #20cfff;
+    text-decoration: none;
+    text-shadow:
+        0 0 5px rgba(32, 207, 255, 0.65),
+        0 0 15px rgba(32, 207, 255, 0.3);
+    animation: none;
+}
+
+
+    50% {
+        text-shadow:
+            0 0 8px rgba(32, 207, 255, 1),
+            0 0 22px rgba(32, 207, 255, 0.9),
+            0 0 42px rgba(32, 207, 255, 0.5);
+    }
+}
+
+/* Retire le soulignement du titre précédent */
+.nexora-logo span {
+    text-decoration: none;
+}
+
+@media (max-width: 620px) {
+    .nexora-logo {
+        font-size: clamp(36px, 10vw, 60px);
+        letter-spacing: 0.09em;
+    }
+}
+
+/* FOOTER PREMIUM NEXORA */
+
+.nexora-footer {
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    color: #e8f1ff;
+    background:
+        radial-gradient(
+            ellipse at 15% 100%,
+            rgba(0, 95, 210, 0.13),
+            transparent 55%
+        ),
+        linear-gradient(
+            110deg,
+            #031329 0%,
+            #041a36 52%,
+            #03152c 100%
+        );
+    border-top: 1px solid rgba(26, 132, 255, 0.35);
+}
+
+.footer-top-line {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #087fff,
+        #16d6ff,
+        #087fff,
+        transparent
+    );
+    opacity: 0.75;
+}
+
+.footer-layout {
+    width: min(100%, 1450px);
+    margin: 0 auto;
+    padding: 38px 34px;
+    display: grid;
+    grid-template-columns: 1.15fr 1.55fr .75fr .85fr 1fr;
+    align-items: start;
+    gap: 30px;
+}
+
+.footer-brand {
+    padding-top: 12px;
+}
+
+.footer-brand-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-n {
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: -6px;
+    background: linear-gradient(
+        135deg,
+        #24e1ff,
+        #087cff 60%,
+        #0064d9
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.footer-word {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    white-space: nowrap;
+    color: #f2f7ff;
+}
+
+.footer-word span {
+    color: #1bd5ff;
+    text-shadow: 0 0 10px rgba(27,213,255,.4);
+}
+
+.footer-tagline {
+    margin-top: 13px;
+    color: #9dc9ff;
+    font-size: 8px;
+    letter-spacing: 2.6px;
+    white-space: nowrap;
+}
+
+.footer-presentation h3 {
+    margin-bottom: 9px;
+    color: #f5f8ff;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.footer-presentation p {
+    max-width: 270px;
+    margin-bottom: 15px;
+    color: #a9c4e6;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 36px;
+    padding: 0 17px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(100deg, #079aff, #0874ee);
+    color: white;
+    font: inherit;
+    font-size: 10px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: transform .22s ease,
+                box-shadow .22s ease;
+}
+
+.footer-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 22px rgba(0,125,255,.3);
+}
+
+.footer-cta span {
+    font-size: 16px;
+}
+
+.footer-column {
+    min-height: 100px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(61, 142, 231, .22);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 3px;
+    color: #20cfff;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.footer-column button,
+.footer-column a {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #c3d6ed;
+    font-family: inherit;
+    font-size: 10px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.footer-column button:hover,
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-social {
+    min-height: 100px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(61, 142, 231, .22);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 10px 0 23px;
+}
+
+.footer-social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 19px;
+    height: 24px;
+    color: #36caff;
+    font-size: 19px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.footer-social-icons a:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.footer-contact {
+    color: #a9c4e6;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.footer-contact:hover {
+    color: white;
+}
+
+.footer-copyright {
+    margin-top: 16px;
+    color: #86a4c9;
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1050px) {
+    .footer-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px 22px;
+    }
+
+    .footer-social {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 620px) {
+    .footer-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 30px 20px;
+        gap: 28px 18px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-presentation {
+        grid-column: 1 / -1;
+    }
+
+    .footer-column,
+    .footer-social {
+        padding-left: 12px;
+    }
+
+    .footer-word {
+        font-size: 17px;
+        letter-spacing: 4px;
+    }
+}
+/* LOGO EN HAUT A DROITE */
+
+.header-brand {
+    position: fixed;
+    top: 12px;
+    left: 15px;
+    right: auto;
+    z-index: 1000;
+}
+.header-brand img {
+    display: block;
+    width: 145px;
+    height: auto;
+    object-fit: contain;
+}
+@media (max-width: 620px) {
+    .header-brand {
+    top: 12px;
+    left: 12px;
+    right: auto;
+}
+
+    .header-brand img {
+        width: 95px;
+    }
+}
+css
+/* ===== NEXORA AI ===== */
+
+
+/* ===== NEXORA AI — STYLE FUTURISTE ===== */
+
+.nexora-ai {
+    position: relative;
+    isolation: isolate;
+    width: min(900px, 92%);
+    margin: 38px auto;
+    padding: 26px;
+    overflow: hidden;
+    color: #f4f7ff;
+    font-family: inherit;
+    background:
+        radial-gradient(ellipse at 100% 0%, rgba(0, 112, 255, 0.17), transparent 42%),
+        radial-gradient(ellipse at 0% 100%, rgba(0, 195, 255, 0.08), transparent 38%),
+        linear-gradient(145deg, #071225, #030916 70%);
+    border: 1px solid rgba(50, 155, 255, 0.25);
+    border-radius: 26px;
+    box-shadow:
+        0 0 45px rgba(0, 100, 255, 0.09),
+        0 24px 70px rgba(0, 0, 0, 0.25);
+}
+
+.nexora-ai::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(36, 155, 255, 0.8),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.ai-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border: 1px solid rgba(50, 190, 255, 0.55);
+    border-radius: 18px;
+    background: linear-gradient(
+        145deg,
+        rgba(0, 130, 255, 0.24),
+        rgba(0, 35, 85, 0.55)
+    );
+    color: #55d8ff;
+    font-size: 32px;
+    box-shadow:
+        0 0 25px rgba(0, 145, 255, 0.2),
+        inset 0 0 18px rgba(0, 145, 255, 0.08);
+}
+
+.ai-header h1 {
+    margin: 0 0 5px;
+    font-size: clamp(25px, 4vw, 35px);
+    letter-spacing: -0.7px;
+    text-shadow: 0 0 22px rgba(30, 145, 255, 0.15);
+}
+
+.ai-header p {
+    margin: 0;
+    color: #aebfd9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.ai-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(66, 230, 164, 0.18);
+    border-radius: 999px;
+    background: rgba(25, 180, 120, 0.06);
+    color: #b6d8d2;
+    font-size: 12px;
+}
+
+.ai-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #42e6a4;
+    box-shadow: 0 0 12px rgba(66, 230, 164, 0.7);
+}
+
+.ai-chat {
+    min-height: 310px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding: 22px;
+    border: 1px solid rgba(65, 145, 255, 0.22);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(0, 100, 255, 0.08), transparent 50%),
+        rgba(2, 10, 25, 0.8);
+    box-shadow: inset 0 0 35px rgba(0, 65, 150, 0.07);
+    scrollbar-color: #176acb #071225;
+    scrollbar-width: thin;
+}
+
+.ai-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.ai-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid rgba(80, 190, 255, 0.35);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #087bff, #11c8e8);
+    color: white;
+    font-weight: 800;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.22);
+}
+
+.ai-bubble {
+    max-width: 85%;
+    padding: 16px 18px;
+    border: 1px solid rgba(90, 155, 235, 0.19);
+    border-radius: 5px 17px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 65, 115, 0.32),
+        rgba(10, 25, 50, 0.65)
+    );
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.ai-bubble strong {
+    color: #59d8ff;
+}
+
+.ai-bubble p {
+    margin: 9px 0 0;
+    color: #d5e2f5;
+}
+
+.ai-user {
+    justify-content: flex-end;
+}
+
+.ai-user .ai-bubble {
+    border-color: rgba(35, 160, 255, 0.35);
+    border-radius: 17px 5px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 105, 235, 0.3),
+        rgba(0, 55, 125, 0.28)
+    );
+}
+
+.ai-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.ai-suggestion {
+    padding: 11px 15px;
+    border: 1px solid rgba(65, 155, 255, 0.3);
+    border-radius: 13px;
+    background: rgba(15, 65, 125, 0.2);
+    color: #dceaff;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ai-suggestion:hover {
+    background: rgba(20, 110, 220, 0.25);
+    border-color: rgba(70, 190, 255, 0.75);
+    box-shadow: 0 0 18px rgba(0, 120, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.ai-input-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid rgba(55, 155, 255, 0.4);
+    border-radius: 19px;
+    background: rgba(2, 10, 25, 0.88);
+    box-shadow:
+        0 0 25px rgba(0, 100, 255, 0.08),
+        inset 0 0 18px rgba(0, 75, 160, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ai-input-area:focus-within {
+    border-color: rgba(55, 185, 255, 0.8);
+    box-shadow:
+        0 0 25px rgba(0, 125, 255, 0.13),
+        inset 0 0 18px rgba(0, 75, 160, 0.06);
+}
+
+.ai-input-area textarea {
+    flex: 1;
+    min-width: 0;
+    max-height: 140px;
+    resize: vertical;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f4f7ff;
+    font: inherit;
+    line-height: 1.6;
+}
+
+.ai-input-area textarea::placeholder {
+    color: #8298b9;
+}
+
+.ai-input-area button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border: 1px solid rgba(130, 220, 255, 0.3);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #087bff, #12c8e8);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.2);
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.ai-input-area button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+.ai-disclaimer {
+    margin-top: 15px;
+    color: #8498b8;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .nexora-ai {
+        width: 94%;
+        margin: 22px auto;
+        padding: 15px;
+        border-radius: 21px;
+    }
+
+    .ai-header {
+        gap: 12px;
+    }
+
+    .ai-status {
+        margin-left: 0;
+    }
+
+    .ai-chat {
+        min-height: 280px;
+        padding: 14px;
+    }
+
+    .ai-message {
+        gap: 9px;
+    }
+
+    .ai-avatar {
+        width: 33px;
+        height: 33px;
+        border-radius: 11px;
+    }
+
+    .ai-bubble {
+        max-width: 95%;
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .ai-suggestions {
+        gap: 8px;
+    }
+
+    .ai-suggestion {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .ai-input-area {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .ai-input-area button {
+        width: 41px;
+        height: 41px;
+    }
+}
+
+    .ai-status {
+        margin-left: 0;
+    }
+
+    .ai-chat {
+        padding: 14px;
+    }
+
+    .ai-bubble {
+        max-width: 95%;
+        padding: 13px;
+    }
+
+    .ai-suggestion {
+        font-size: 12px;
+    }
+}
+/* Bandeau supérieur en mode clair */
+body.light-mode .site-header {
+    background: #FFFFFF;
+    border-color: #dce4f5;
+    box-shadow: 0 4px 20px rgba(0, 21, 46, 0.08);
+}
+
+/* ===== MODE CLAIR NEXORA ===== */
+body.light-mode {
+    background: #FFFFFF;
+    color: #17213a;
+}
+
+/* Textes */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p,
+body.light-mode label {
+    color: #17213a;
+}
+
+/* Navigation */
+body.light-mode .navigation {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: #dce4f5;
+}
+
+body.light-mode .nav-button {
+    color: #35415c;
+}
+
+body.light-mode .nav-button:hover,
+body.light-mode .nav-button.active {
+    background: #dce7ff;
+    color: #244fbd;
+}
+
+/* Boutons du compte */
+body.light-mode .account-button {
+    border-color: #cbd6ed;
+    color: #244fbd;
+}
+
+/* Contenus et cartes */
+body.light-mode .page,
+body.light-mode .nexora-ai,
+body.light-mode .ai-chat,
+body.light-mode .ai-bubble {
+    background-color: #ffffff;
+    color: #17213a;
+}
+
+/* Champs de saisie */
+body.light-mode input,
+body.light-mode textarea,
+body.light-mode select {
+    background: #ffffff;
+    color: #17213a;
+    border-color: #cbd6ed;
+}
+
+body.light-mode input::placeholder,
+body.light-mode textarea::placeholder {
+    color: #78839b;
+}
+
+/* Bouton de contraste */
+.contrast-button {
+    cursor: pointer;
+}
+
+/* Correction de la bande bleue en mode clair */
+body.light-mode .site-header {
+    background: #FFFFFF;
+    border-color: #dce4f5;
+    box-shadow: 0 4px 20px rgba(0, 21, 46, 0.08);
+}
+
+
+/* NEXORA STUDIO */
+.studio-shell { max-width: 1180px; margin: 0 auto; padding: 28px 18px 60px; }
+.studio-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:18px; flex-wrap:wrap; margin-bottom:22px; }
+.studio-heading h1 { font-size:clamp(30px,5vw,48px); letter-spacing:-1.8px; }
+.studio-heading p { color:var(--muted); margin-top:8px; max-width:620px; line-height:1.6; }
+.studio-layout { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(250px,.8fr); gap:16px; }
+.studio-panel { background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:16px; min-width:0; }
+.studio-panel h2 { font-size:15px; margin-bottom:14px; }
+.studio-preview { position:relative; display:grid; place-items:center; overflow:hidden; min-height:260px; aspect-ratio:16/9; background:#050609; border:1px solid var(--border); border-radius:14px; color:#858792; }
+.studio-preview video { width:100%; height:100%; max-height:520px; object-fit:contain; display:none; }
+.studio-placeholder { text-align:center; padding:24px; line-height:1.7; }
+.studio-overlay { position:absolute; left:7%; right:7%; bottom:12%; text-align:center; color:white; font-size:clamp(18px,3vw,36px); font-weight:800; text-shadow:0 3px 12px #000; pointer-events:none; overflow-wrap:anywhere; }
+.studio-controls { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:13px; }
+.studio-controls button,.studio-action { border:1px solid var(--border); border-radius:10px; background:var(--panel-hover); color:var(--text); padding:10px 13px; cursor:pointer; font:inherit; }
+.studio-controls button:hover,.studio-action:hover { background:rgba(255,255,255,.14); }
+.studio-controls input[type=range] { flex:1; min-width:120px; accent-color:var(--text); }
+.studio-field { display:grid; gap:7px; margin-bottom:14px; }
+.studio-field label { color:var(--muted); font-size:12px; }
+.studio-field input,.studio-field select { width:100%; border:1px solid var(--border); border-radius:10px; padding:11px 12px; background:rgba(0,0,0,.2); color:var(--text); font:inherit; }
+.studio-field input[type=file] { padding:9px; }
+.studio-field input[type=color] { height:42px; padding:4px; }
+.studio-timeline { margin-top:16px; }
+.studio-track { min-height:54px; border:1px dashed var(--border); border-radius:11px; padding:10px; color:var(--muted); font-size:12px; display:flex; align-items:center; gap:10px; }
+.studio-clip { background:rgba(110,150,255,.2); border:1px solid rgba(130,165,255,.4); color:var(--text); border-radius:8px; padding:10px 12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.studio-note { color:var(--muted); font-size:12px; line-height:1.6; margin-top:12px; }
+.studio-status { color:var(--muted); font-size:12px; margin-top:10px; min-height:18px; }
+@media(max-width:800px){ .studio-layout{grid-template-columns:1fr;} .studio-preview{min-height:190px;} .navigation{overflow-x:auto; justify-content:flex-start;} }
+
+
+/* ACCUEIL NEXORA — univers bleu lumineux */
+.nexora-hero{position:relative;overflow:hidden;min-height:650px;padding:58px clamp(22px,6vw,86px) 52px;background:radial-gradient(ellipse at 78% 42%,rgba(0,105,255,.28),transparent 38%),linear-gradient(115deg,#050b18 0%,#07152d 58%,#061a3a 100%);isolation:isolate}
+.nexora-hero:after{content:"";position:absolute;z-index:-1;right:-12%;top:-35%;width:58%;height:125%;background:linear-gradient(135deg,transparent 28%,rgba(0,115,255,.22),rgba(0,153,255,.04));transform:skewX(-22deg);filter:blur(5px)}
+.hero-glow{position:absolute;z-index:-1;width:430px;height:430px;right:15%;bottom:-300px;border-radius:50%;background:#087cff;filter:blur(110px);opacity:.55}
+.hero-topline{display:flex;align-items:center;gap:17px;position:relative;z-index:1}
+.hero-brandmark{width:57px;height:57px;display:grid;place-items:center;font-size:37px;font-weight:900;font-style:italic;color:#fff;background:linear-gradient(140deg,#38c5ff,#0754e9 65%,#062c9a);clip-path:polygon(0 0,70% 0,100% 35%,100% 100%,30% 100%,0 65%);text-shadow:0 0 20px #168cff}
+.hero-brandmark span{display:none}
+.hero-brandname{font-size:clamp(25px,4vw,43px);letter-spacing:.27em;font-weight:300;color:#f5f8ff}
+.hero-brandname span{color:#28aaff;text-shadow:0 0 17px #078bff}
+.hero-slogan{margin-left:auto;color:#c6d8f5;font-size:13px;line-height:1.5;border-left:1px solid rgba(72,161,255,.65);padding-left:22px}
+.hero-main{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:20px;max-width:1250px;margin:65px auto 0}
+.hero-copy{max-width:550px;position:relative;z-index:2}
+.nexora-hero .eyebrow{color:#8cbfff;margin-bottom:24px;letter-spacing:3px}
+.nexora-hero .eyebrow:before,.nexora-hero .eyebrow:after{display:none}
+.hero-copy h1{font-size:clamp(40px,5.6vw,68px);line-height:1.04;letter-spacing:-.055em;margin:0 0 22px;color:#f7faff;font-weight:750}
+.hero-copy h1 span{color:#249dff;text-shadow:0 0 28px rgba(0,126,255,.2)}
+.hero-copy>p{max-width:450px;color:#b6c5dc;font-size:16px;line-height:1.8;margin:0 0 28px}
+.hero-start{background:linear-gradient(100deg,#0878f9,#12a9ff);color:white;border:0;box-shadow:0 8px 30px rgba(0,117,255,.3);min-height:52px}
+.hero-start:hover{background:linear-gradient(100deg,#168cff,#42bdff);box-shadow:0 10px 38px rgba(0,140,255,.45)}
+.hero-benefits{display:flex;flex-wrap:wrap;gap:18px;margin-top:30px;color:#c0d2ec;font-size:11px}
+.hero-benefits span:first-letter{color:#39aaff}
+.hero-art{height:390px;position:relative;display:grid;place-items:center;perspective:900px}
+.orbit{position:absolute;border:1px solid rgba(57,153,255,.24);border-radius:50%;transform:rotate(-22deg)}
+.orbit-one{width:440px;height:250px}.orbit-two{width:520px;height:310px;transform:rotate(24deg)}
+.hero-panel{position:absolute;border:1px solid rgba(76,163,255,.65);background:linear-gradient(145deg,rgba(13,39,76,.96),rgba(3,12,30,.96));box-shadow:0 25px 70px rgba(0,0,0,.5),0 0 35px rgba(0,112,255,.15);border-radius:15px}
+.panel-main{width:min(82%,390px);height:290px;transform:rotateY(-12deg) rotateX(4deg);z-index:2;overflow:hidden}
+.panel-bar{height:34px;border-bottom:1px solid rgba(107,169,255,.2);display:flex;align-items:center;gap:5px;padding:0 13px;color:#8bbfff;font-size:9px;letter-spacing:2px}
+.panel-bar i{width:6px;height:6px;border-radius:50%;background:#2c8fff}.panel-bar span{margin-left:10px}
+.panel-content{padding:28px 26px}.panel-icon{width:34px;height:34px;display:grid;place-items:center;background:#087bff;border-radius:10px;font-weight:800;margin-bottom:18px;box-shadow:0 0 25px #087bff66}
+.panel-content small{font-size:8px;letter-spacing:2px;color:#6eaeef}.panel-content strong{display:block;font-size:25px;line-height:1.15;margin:10px 0 18px;color:#f4f8ff}
+.panel-lines{display:grid;gap:7px}.panel-lines i{height:5px;border-radius:5px;background:rgba(108,165,228,.2);width:90%}.panel-lines i:nth-child(2){width:68%}.panel-lines i:nth-child(3){width:78%}
+.panel-chip{margin-top:18px;padding:9px 12px;border-radius:8px;background:rgba(0,117,255,.18);color:#a9d4ff;font-size:10px}.panel-chip b{float:right;color:#4db5ff}
+.panel-code{width:180px;height:190px;left:0;top:25px;padding:18px;transform:rotate(-8deg);z-index:1;color:#78baff;font-size:10px;display:flex;flex-direction:column;gap:12px}.panel-code span{font-size:8px;letter-spacing:1px;margin-bottom:12px}.panel-code b{font-size:19px;color:#dcecff}.panel-code .blue-word{color:#299dff}
+.hero-float{position:absolute;right:0;top:75px;padding:15px 18px;border:1px solid #288fff;border-radius:12px;background:rgba(5,27,57,.92);color:#48adff;font-size:26px;box-shadow:0 0 28px #087bff33;z-index:3}.hero-float small{display:inline-block;vertical-align:middle;margin-left:8px;font-size:10px;line-height:1.5;color:#d5e7ff}
+.home-features{padding:62px 24px 76px;text-align:center;background:#f5f8ff;color:#101d35}
+.features-kicker{font-size:10px;letter-spacing:4px;color:#55749e;font-weight:700}
+.home-features h2{font-size:clamp(27px,4vw,39px);letter-spacing:-1.5px;margin:15px 0 35px;color:#10213d}.home-features h2 span{color:#1689ed}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1000px;margin:auto}
+.feature-card{padding:25px 20px;border:1px solid #e0e9f7;border-radius:16px;background:white;box-shadow:0 10px 35px rgba(25,70,130,.06)}
+.feature-card>div{margin:0 auto 15px;width:52px;height:52px;border-radius:15px;display:grid;place-items:center;background:#e8f2ff;color:#167fe3;font-size:27px}
+.feature-card h3{font-size:15px;margin:0 0 9px;color:#13294a}.feature-card p{font-size:12px;line-height:1.7;color:#62748e;margin:0}
+.creators-studio-button{margin-top:22px}
+@media(max-width:760px){.nexora-hero{padding:35px 22px 45px}.hero-slogan{display:none}.hero-main{grid-template-columns:1fr;margin-top:48px}.hero-art{height:310px;margin-top:8px}.panel-main{height:255px}.panel-code{left:2%;top:12px}.hero-float{right:0;top:48px}.hero-benefits{gap:10px}.feature-grid{grid-template-columns:1fr}.home-features{padding:45px 20px}.hero-copy h1{font-size:clamp(40px,11vw,58px)}}
+
+
+/* Espace jeux vidéo */
+.gc-wrap{width:min(1180px,100%);margin:0 auto;padding:58px 24px 70px;color:#eef4ff}
+.gc-heading{margin-bottom:28px}.gc-kicker{font-size:10px;letter-spacing:2.5px;color:#8dbfff;font-weight:700}
+.gc-heading h1{font-size:clamp(34px,5vw,52px);letter-spacing:-1.8px;margin:10px 0}
+.gc-heading p,.gc-detail>p,.gc-notes>p{color:#aab8ce;line-height:1.65;font-size:14px}
+.gc-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.gc-toolbar input,.gc-toolbar select,.gc-notes input,.gc-notes select,.gc-notes textarea{border:1px solid rgba(130,170,220,.24);background:#111d32;color:#eef4ff;border-radius:10px;padding:12px;font:inherit}
+.gc-toolbar input{flex:1;min-width:210px}.gc-toolbar select{min-width:170px}
+.gc-layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(270px,.8fr);gap:17px;align-items:start}
+.gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.gc-card,.gc-detail,.gc-notes{border:1px solid rgba(130,170,220,.2);border-radius:15px;background:linear-gradient(145deg,#14223a,#0e192c);padding:17px}
+.gc-card{cursor:pointer;transition:border-color .18s,transform .18s}.gc-card:hover,.gc-card.active{border-color:#4c9ff2;transform:translateY(-2px)}
+.gc-card-mark,.gc-detail-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:#1c3b62;color:#9bcaff;font-weight:700}
+.gc-card small{display:block;color:#79b7f7;font-size:10px;letter-spacing:1px;text-transform:uppercase;margin-top:14px}
+.gc-card h3{font-size:16px;margin:6px 0}.gc-card p{font-size:12px;color:#aab8ce;line-height:1.5}
+.gc-aside{display:grid;gap:13px}.gc-detail h2,.gc-notes h2{font-size:21px;margin:12px 0 8px}
+.gc-detail h3{font-size:14px;margin:20px 0 10px}.gc-tip{padding:12px;margin:8px 0;border-radius:9px;background:#1a2b46;border-left:2px solid #4b9de9;color:#dce8f7;font-size:13px;line-height:1.55}
+.gc-notes label{display:block;color:#b8c7dc;font-size:12px;margin:13px 0 6px}
+.gc-notes select,.gc-notes textarea{width:100%;margin-top:0}.gc-notes textarea{min-height:82px;resize:vertical}
+.gc-notes button{width:100%;margin-top:10px;padding:12px;border:0;border-radius:9px;background:#2878d2;color:white;font-weight:600;cursor:pointer}
+.gc-saved-notes{margin-top:12px}.gc-saved-item{padding:10px;margin-top:8px;border-radius:8px;background:#1a2b46;color:#dce8f7;font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.gc-empty,.gc-footnote{color:#9eacc2;font-size:12px;line-height:1.6}.gc-empty{padding:20px}
+.gc-footnote{margin-top:20px}
+@media(max-width:760px){.gc-layout{grid-template-columns:1fr}.gc-wrap{padding:38px 16px 50px}.gc-aside{order:2}}
+
+
+/* Offres Nexora PRO : affichage vertical */
+.pro-plans{display:flex;flex-direction:column;gap:22px;width:min(100%,520px);margin:0 auto}
+.pro-plans .price-card{width:100%;margin:0}
+.plan-benefits{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+.plan-benefits h3{font-size:13px;margin:0 0 10px}
+.plan-benefits p{position:relative;padding:10px 0 10px 22px;margin:0;color:var(--muted);font-size:13px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,.07)}
+.plan-benefits p:before{content:"✓";position:absolute;left:0;color:#8bbcff}
+.pro-lock-message{width:min(100% - 32px,620px);margin:55px auto;padding:35px;text-align:center;border:1px solid var(--border);border-radius:22px;background:rgba(255,255,255,.04)}
+.pro-lock-message p{color:var(--muted);line-height:1.7}
+.pro-lock-message .button{margin-top:12px}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="grain"></div>
+
+<!-- =================================
+     NAVIGATION PRINCIPALE
+================================== -->
+
+
+<header class="site-header">
+<div class="header-brand">
+    
+<img id="nexoraLogo" src="logo.jpg" data-dark-logo="logo.jpg" data-light-logo="logo-clair.png" alt="Nexora">
+
+</div>
+    <div class="account-actions">
+        <button class="account-button login-button"
+                data-page="connexion">
+            Se connecter
+        </button>
+
+        <button class="account-button signup-button"
+                data-page="inscription">
+            Commencer / Créer un compte
+        </button>
+
+<button class="account-button contrast-button" id="contrastToggle" type="button">
+    ☀️ Mode clair
+</button>
+
+
+    </div>
+
+    <nav class="navigation" aria-label="Navigation principale">
+        <button class="nav-button active" data-page="accueil">
+            Accueil
+        </button>
+
+        <button class="nav-button" data-page="web">
+            Création web
+        </button>
+
+        <button class="nav-button" data-page="jeux">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 9h11a4 4 0 0 1 3.8 5.2l-.8 2.6a2.5 2.5 0 0 1-4.2 1l-2-2H9.7l-2 2a2.5 2.5 0 0 1-4.2-1l-.8-2.6A4 4 0 0 1 6.5 9z"/>
+                <path d="M7 11.5v4M5 13.5h4"/>
+                <circle cx="16.5" cy="12.5" r=".7" fill="currentColor"/>
+                <circle cx="18.5" cy="14.5" r=".7" fill="currentColor"/>
+            </svg>
+            Jeux vidéo
+        </button>
+
+        <button class="nav-button" data-page="createurs">
+            Créateurs de contenu
+        </button>
+        <button class="nav-button" data-page="ia">IA</button>
+        <button class="nav-button" data-page="pro">Nexora PRO</button>
+
+
+        <button class="nav-button" data-page="aide">
+            Aide
+        </button>
+    </nav>
+</header>
+
+<!-- =================================
+     CONTENU DES PAGES
+================================== -->
+
+<main>
+
+    <!-- PAGE ACCUEIL -->
+
+    <section class="page active" id="accueil">
+        <div class="nexora-hero">
+            <div class="hero-glow"></div>
+            <div class="hero-topline">
+                <div class="hero-brandmark">N<span>X</span></div>
+                <div class="hero-brandname">NEX<span>O</span>RA</div>
+                <div class="hero-slogan">Le futur de vos idées<br>commence ici.</div>
+            </div>
+
+            <div class="hero-main">
+                <div class="hero-copy">
+                    <div class="eyebrow">CRÉE · DÉVELOPPE · INNOVE</div>
+                    <h1>Donne vie à tes<br>idées <span>numériques.</span></h1>
+                    <p>Découvre l’univers Nexora : jeux vidéo, création de contenu et outils pour imaginer tes prochains projets.</p>
+                    <button class="button button-primary hero-start" data-go="jeux">
+                        Commencer dès maintenant
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </button>
+                    <div class="hero-benefits">
+                        <span>✦ Simple à explorer</span>
+                        <span>⌘ Tes projets</span>
+                        <span>↗ Un univers à découvrir</span>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                    <div class="hero-panel panel-code"><span>✦ NEXORA / IDEAS</span><b>Imagine.</b><b>Crée.</b><b class="blue-word">Explore.</b></div>
+                    <div class="hero-panel panel-main">
+                        <div class="panel-bar"><i></i><i></i><i></i><span>NEXORA</span></div>
+                        <div class="panel-content"><div class="panel-icon">N</div><small>TON ESPACE COMMENCE ICI</small><strong>Qu’allons-nous<br>créer aujourd’hui ?</strong><div class="panel-lines"><i></i><i></i><i></i></div><div class="panel-chip">Découvrir l’univers <b>→</b></div></div>
+                    </div>
+                    <div class="hero-float">✧<small>Une idée.<br>Un nouveau projet.</small></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="home-features">
+            <div class="features-kicker">EXPLORE NEXORA</div>
+            <h2>Tout un univers à <span>découvrir.</span></h2>
+            <div class="feature-grid">
+                <button class="feature-card" type="button" data-go="jeux">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.5h11a4 4 0 0 1 3.8 5.2l-.8 2.6a2.5 2.5 0 0 1-4.2 1l-2-2H9.7l-2 2a2.5 2.5 0 0 1-4.2-1l-.8-2.6a4 4 0 0 1 3.8-5.2Z"/><path d="M7 11v4M5 13h4M16 11.5h.1M18 13.5h.1"/></svg></div>
+                    <h3>Jeux vidéo</h3><p>Entre dans l’espace jeux et découvre les expériences disponibles.</p><span class="feature-link">Découvrir les jeux →</span>
+                </button>
+                <button class="feature-card" type="button" data-go="createurs">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
+                    <h3>Créateurs de contenu</h3><p>Retrouve des outils et ressources pour tes créations.</p><span class="feature-link">Explorer →</span>
+                </button>
+                <button class="feature-card" type="button" data-go="web">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 7h.1M11 7h.1M14 7h.1M8 13l-2 2 2 2M16 13l2 2-2 2"/></svg></div>
+                    <h3>Création web</h3><p>Imagine et construis tes propres projets numériques.</p><span class="feature-link">Créer un projet →</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE AIDE -->
+
+    
+    <!-- NEXORA STUDIO -->
+    <section class="page" id="studio">
+        <div class="studio-shell">
+            <div class="studio-heading">
+                <button class="studio-action" type="button" data-go="createurs">← Retour aux créateurs</button>
+
+                <div>
+                    <div class="eyebrow">NEXORA CREATIVE</div>
+                    <h1>Nexora Studio</h1>
+                    <p>Un espace simple pour commencer à monter tes vidéos : importe un média, prévisualise-le et ajoute un titre.</p>
+                </div>
+                <button class="studio-action" id="studioReset" type="button">Réinitialiser le projet</button>
+            </div>
+
+            <div class="studio-layout">
+                <div class="studio-panel">
+                    <h2>Aperçu du projet</h2>
+                    <div class="studio-preview" id="studioPreview">
+                        <div class="studio-placeholder" id="studioPlaceholder">🎬<br><strong>Ton aperçu apparaîtra ici</strong><br>Importe une vidéo pour commencer.</div>
+                        <video id="studioVideo" playsinline></video>
+                        <div class="studio-overlay" id="studioOverlay"></div>
+                    </div>
+                    <div class="studio-controls">
+                        <button id="studioPlay" type="button">▶ Lire</button>
+                        <span id="studioTime">00:00</span>
+                        <input id="studioSeek" type="range" min="0" max="100" value="0" aria-label="Position de lecture">
+                        <span id="studioDuration">00:00</span>
+                    </div>
+                    <div class="studio-timeline">
+                        <h2>Timeline</h2>
+                        <div class="studio-track" id="studioTrack">
+                            <span>Piste vidéo</span><span id="studioClip" class="studio-clip">Aucun média importé</span>
+                        </div>
+                    </div>
+                    <p class="studio-note">Cette première version permet de préparer et prévisualiser un montage dans le navigateur. L'export vidéo monté sera ajouté dans une prochaine étape.</p>
+                    <div class="studio-status" id="studioStatus" aria-live="polite"></div>
+                </div>
+
+                <div class="studio-panel">
+                    <h2>Médias</h2>
+                    <div class="studio-field">
+                        <label for="studioFile">Importer une vidéo</label>
+                        <input id="studioFile" type="file" accept="video/*">
+                    </div>
+                    <div class="studio-field">
+                        <label for="studioTitle">Texte à afficher</label>
+                        <input id="studioTitle" type="text" maxlength="90" placeholder="Ton titre...">
+                    </div>
+                    <div class="studio-field">
+                        <label for="studioTitleColor">Couleur du titre</label>
+                        <input id="studioTitleColor" type="color" value="#ffffff">
+                    </div>
+                    <div class="studio-field">
+                        <label for="studioTitleSize">Taille du titre</label>
+                        <select id="studioTitleSize">
+                            <option value="24">Petit</option>
+                            <option value="36" selected>Moyen</option>
+                            <option value="52">Grand</option>
+                        </select>
+                    </div>
+                    <button class="studio-action" id="studioSave" type="button">Enregistrer le projet (.json)</button>
+                    <p class="studio-note">Le fichier projet sauvegarde le titre et les réglages. La vidéo reste sur ton appareil et n'est pas envoyée sur un serveur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="page" id="aide">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M9.5 9a2.6 2.6 0 1 1 4.4 1.9c-1.2 1-1.9 1.3-1.9 3"/>
+                        <path d="M12 17.5h.01"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Notre espace assistance</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons cet espace pour vous accompagner
+                    et répondre à vos besoins. Revenez découvrir
+                    les nouveautés prochainement.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+                <button class="button button-primary creators-studio-button" data-go="studio">
+                    Ouvrir Nexora Studio
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+<!-- PAGE NEXORA PRO -->
+
+
+
+
+    <!-- PAGE IA -->
+
+   
+
+
+    <!-- PAGE AIDE WEB -->
+
+    <section class="page" id="pro">
+    <div class="pro-page">
+
+        <div class="pro-eyebrow">
+            <span class="pro-crown">♛</span>
+            NEXORA PRO
+        </div>
+
+        <h1 class="pro-title">
+            Passez à la<br>
+            <span>version supérieure.</span>
+        </h1>
+
+        <p class="pro-description">
+            Découvrez Nexora PRO, notre offre premium conçue
+            pour aller plus loin dans vos projets.
+        </p>
+
+        <div class="pro-plans">
+            <article class="price-card">
+                <div class="price-top"><span class="price-label">NEXORA PRO PASS</span><span class="price-tag">ESSENTIEL</span></div>
+                <div class="price"><span class="price-number">2,99 €</span></div>
+                <p class="price-note">Accès aux espaces premium Nexora.</p>
+                <div class="plan-benefits"><h3>Avantages inclus</h3><p>Accéder à l'espace Créateurs de contenu en mode pro.</p><p>Accéder à l'espace Création web en mode pro.</p></div>
+                <button class="button buy-button" type="button" data-plan="2,99 €">Choisir ce pass</button>
+                <p class="buy-notice" hidden></p>
+            </article>
+            <article class="price-card">
+                <div class="price-top"><span class="price-label">NEXORA PRO PASS</span><span class="price-tag">COMPLET</span></div>
+                <div class="price"><span class="price-number">10 €</span></div>
+                <p class="price-note">Accès à l'ensemble des avantages premium.</p>
+                <div class="plan-benefits"><h3>Avantages inclus</h3><p>Accéder à l'espace Créateurs de contenu en mode pro.</p><p>Accéder à l'espace Création web en mode pro.</p></div>
+                <button class="button buy-button" type="button" data-plan="10 €">Choisir ce pass</button>
+                <p class="buy-notice" hidden></p>
+            </article>
+        </div>
+
+        <div class="benefits-section">
+            <div class="benefits-eyebrow">Inclus dans les deux offres</div>
+            <h2>Les espaces premium</h2>
+            <p class="benefits-intro">Les deux pass donnent accès aux espaces Créateurs de contenu et Création web en mode pro.</p>
+        </div>
+        <div class="pro-lock-message" id="proAccessNotice" hidden>
+            <h2>Accès réservé aux membres PRO</h2>
+            <p>Choisis un Nexora PRO Pass pour accéder aux espaces Créateurs de contenu et Création web.</p>
+        </div>
+    </div>
+</section>
+
+    <section class="page" id="ia">
+    <div class="nexora-ai">
+
+        <div class="ai-header">
+            <div class="ai-symbol">✦</div>
+            <div>
+                <h1>Nexora AI</h1>
+                <p>Ton assistant pour avancer, étape par étape.</p>
+            </div>
+            <span class="ai-status">
+                <span class="ai-status-dot"></span>
+                Prêt à t'aider
+            </span>
+        </div>
+
+        <div class="ai-chat" id="aiChat">
+            <div class="ai-message ai-bot">
+                <div class="ai-avatar">N</div>
+                <div class="ai-bubble">
+                    <strong>Salut ! Moi, c'est Nexora AI. </strong>
+                    <p>Je suis là pour t'aider à réaliser tes projets, comprendre de nouvelles choses et résoudre tes problèmes.</p>
+                    <p>On avance ensemble, une étape à la fois. Qu'est-ce que tu aimerais faire aujourd'hui ?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-suggestions">
+            <button type="button" class="ai-suggestion"
+                onclick="aiUseSuggestion('Aide-moi à créer un site web')">
+                 Créer un site web
+            </button>
+
+            <button type="button" class="ai-suggestion"
+                onclick="aiUseSuggestion('Aide-moi à apprendre à coder')">
+                 Apprendre à coder
+            </button>
+
+            <button type="button" class="ai-suggestion"
+                onclick="aiUseSuggestion('Aide-moi à organiser mon projet')">
+                 Organiser un projet
+            </button>
+        </div>
+
+        <form class="ai-input-area" id="aiForm">
+            <textarea id="aiInput"
+                placeholder="Explique-moi ce que tu souhaites accomplir..."
+                rows="1"></textarea>
+
+            <button type="submit" aria-label="Envoyer le message">
+                ➤
+            </button>
+        </form>
+
+        <p class="ai-disclaimer">
+            Nexora AI est en développement. Son assistant intelligent sera bientôt connecté.
+        </p>
+
+    </div>
+</section>
+
+    <section class="page" id="web">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="16" rx="3"/>
+                        <path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>
+                        <path d="M8 13l-2 2 2 2M16 13l2 2-2 2M13.5 12l-3 6"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Solutions numériques</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons notre espace d'aide web pour vous
+                    accompagner dans la création, l'amélioration
+                    et la découverte de vos projets en ligne.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PAGE JEUX VIDÉO -->
+
+    <section class="page" id="jeux">
+        <div class="gc-wrap">
+            <div class="gc-heading">
+                <div class="gc-kicker">ESPACE GAMING</div>
+                <h1>Jeux vidéo</h1>
+                <p>Retrouve des conseils, des idées de progression et tes propres notes pour tes jeux préférés.</p>
+            </div>
+            <div class="gc-toolbar">
+                <input id="gcSearch" type="search" placeholder="Rechercher un jeu ou un conseil..." aria-label="Rechercher un jeu">
+                <select id="gcCategory" aria-label="Filtrer par genre">
+                    <option value="Tous">Tous les genres</option>
+                    <option>Action / aventure</option><option>Compétition</option>
+                    <option>Sport / conduite</option><option>Sandbox</option><option>RPG</option>
+                </select>
+            </div>
+            <div class="gc-layout">
+                <div id="gcGames" class="gc-grid"></div>
+                <aside class="gc-aside">
+                    <div id="gcDetail" class="gc-detail">
+                        <div class="gc-detail-mark">N</div><h2>Choisis un jeu</h2>
+                        <p>Sélectionne un jeu pour afficher quelques conseils.</p>
+                    </div>
+                    <div class="gc-notes">
+                        <h2>Mes notes</h2>
+                        <p>Note ici un objectif ou une astuce à garder en tête.</p>
+                        <label for="gcNoteGame">Jeu</label><select id="gcNoteGame"></select>
+                        <label for="gcNoteText">Ma note</label><textarea id="gcNoteText" placeholder="Écris ton objectif ou ton conseil..."></textarea>
+                        <button type="button" id="gcSaveNote">Enregistrer</button>
+                        <div id="gcNotes" class="gc-saved-notes" aria-live="polite"></div>
+                    </div>
+                </aside>
+            </div>
+            <p class="gc-footnote">Les conseils sont généraux et peuvent changer avec les mises à jour des jeux. Tes notes sont enregistrées sur cet appareil.</p>
+        </div>
+    </section>
+
+
+    <!-- PAGE CRÉATEURS DE CONTENU -->
+
+    <section class="page" id="createurs">
+        <div class="coming-soon">
+            <div class="soon-card">
+
+                <div class="soon-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.7"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="3" y="6" width="18" height="12" rx="3"/>
+                        <path d="M10 10l5 2-5 2v-4z"/>
+                        <path d="M7 3h10M7 21h10"/>
+                    </svg>
+                </div>
+
+                <div class="soon-label">Création de contenu</div>
+                <h1>Bientôt disponible.</h1>
+                <p>
+                    Nous préparons des ressources et des solutions
+                    pour les créateurs de contenu qui souhaitent
+                    développer leurs projets et leur présence en ligne.
+                </p>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    En préparation
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- PAGE CONNEXION -->
+
+<section class="page" id="connexion">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-eyebrow">NEXORA ACCOUNT</div>
+            <h1>Content de vous revoir.</h1>
+            <p class="auth-description">
+                Entrez votre adresse e-mail pour continuer.
+            </p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Adresse e-mail</label>
+                <input id="loginEmail" type="email"
+                       placeholder="vous@exemple.com"
+                       autocomplete="email" required>
+
+                <label for="loginPassword">Mot de passe</label>
+                <input id="loginPassword" type="password"
+                       placeholder="Votre mot de passe"
+                       autocomplete="current-password" minlength="8" required>
+
+                <button class="auth-submit" type="submit">
+                    Continuer
+                </button>
+            </form>
+
+            <p class="auth-message" id="loginMessage" hidden>
+                La connexion sera bientôt disponible.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE CREATION DE COMPTE -->
+
+<section class="page" id="inscription">
+    <div class="auth-page">
+        <div class="auth-card">
+            <div class="auth-eyebrow">REJOIGNEZ NEXORA</div>
+
+            <div id="signupStep1">
+                <h1>Commençons ensemble.</h1>
+                <p class="auth-description">
+                    Entrez votre adresse e-mail pour commencer
+                    la création de votre compte.
+                </p>
+
+                <form id="signupEmailForm">
+                    <label for="signupEmail">Adresse e-mail</label>
+                    <input id="signupEmail" type="email"
+                           placeholder="vous@exemple.com"
+                           autocomplete="email" required>
+
+                    <button class="auth-submit" type="submit">
+                        Valider
+                    </button>
+                </form>
+            </div>
+
+<div id="signupCodeStep" hidden>
+    <h1>Vérifions ton adresse.</h1>
+    <p class="auth-description">
+        La vérification par e-mail sera ajoutée dans une prochaine version.
+    </p>
+
+    <form id="signupCodeForm">
+        <label for="signupCode">Code de vérification</label>
+        <input id="signupCode" type="text"
+               inputmode="numeric"
+               autocomplete="one-time-code"
+               placeholder="0000"
+               pattern="[0-9]{4}"
+               maxlength="4" required>
+
+        <p class="auth-message" id="signupCodeMessage" hidden>
+            Code incorrect. Réessaie.
+        </p>
+
+        <button class="auth-submit" type="submit">
+            Vérifier le code
+        </button>
+    </form>
+</div>
+
+            <div id="signupStep2" hidden>
+                <h1>Bienvenue parmi nous.</h1>
+                <p class="auth-description">
+                    Choisissez votre pseudo et votre mot de passe.
+                </p>
+
+                <form id="signupDetailsForm">
+                    <label for="signupUsername">Votre pseudo</label>
+                    <input id="signupUsername" type="text"
+                           placeholder="Votre pseudo"
+                           autocomplete="username"
+                           minlength="3" maxlength="24" required>
+
+                    <label for="signupPassword">Votre mot de passe</label>
+                    <input id="signupPassword" type="password"
+                           placeholder="Choisissez un mot de passe"
+                           autocomplete="new-password"
+                           minlength="8" required>
+
+                    <button class="auth-submit" type="submit">
+                        Terminer
+                    </button>
+                </form>
+
+                <p class="auth-message" id="signupMessage" hidden>
+                    Votre formulaire est prêt.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+
+<!-- =================================
+     PIED DE PAGE
+================================== -->
+
+
+<!-- PIED DE PAGE NEXORA -->
+
+<footer class="nexora-footer">
+    <div class="footer-top-line"></div>
+
+    <div class="footer-layout">
+
+        <!-- LOGO -->
+        <div class="footer-brand">
+            <div class="footer-brand-name">
+                <span class="footer-n">N</span>
+                <span class="footer-word">
+                    NEX<span>O</span>RA
+                </span>
+            </div>
+
+            <p class="footer-tagline">
+                CRÉE · DÉVELOPPE · INNOVE
+            </p>
+        </div>
+
+        <!-- PRÉSENTATION -->
+        <div class="footer-presentation">
+            <h3>Prêt à donner vie à tes idées ?</h3>
+            <p>
+                Rejoins l'univers Nexora et découvre
+                nos outils et ressources pour tes projets.
+            </p>
+
+            <button class="footer-cta" data-page="inscription">
+                Commencer maintenant
+                <span>→</span>
+            </button>
+        </div>
+
+        <!-- LIENS UTILES -->
+        <div class="footer-column">
+            <h4>Liens utiles</h4>
+            <button data-page="accueil">Accueil</button>
+            <button data-page="web">Création web</button>
+            <button data-page="pro">Tarifs PRO</button>
+            <button data-page="aide">À propos / Aide</button>
+        </div>
+
+        <!-- RESSOURCES -->
+        <div class="footer-column">
+            <h4>Ressources</h4>
+            <button data-page="ia">Intelligence artificielle</button>
+            <button data-page="jeux">Jeux vidéo</button>
+            <button data-page="createurs">Créateurs</button>
+            <a href="mailto:jflrdfq@gmail.com">Contact</a>
+        </div>
+
+        <!-- RÉSEAUX ET COPYRIGHT -->
+        <div class="footer-social">
+            <div class="footer-social-icons">
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.6" r="1.2" fill="currentColor"/></svg>
+                </a>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter" title="X / Twitter">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.6 22H2.4l7.3-8.4L1.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20Z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.6 7.1a6.8 6.8 0 0 1-4.2-1.4v9.1a6.1 6.1 0 1 1-6.1-6.1c.4 0 .8 0 1.2.1v3.4a2.8 2.8 0 1 0 1.6 2.6V2h3.4c.3 2.1 2 3.8 4.1 4.1v1Z"/></svg>
+                </a>
+            </div>
+
+            <a class="footer-contact"
+               href="mailto:jflrdfq@gmail.com">
+                jflrdfq@gmail.com
+            </a>
+
+            <p class="footer-copyright">
+                © <span id="footerYear"></span> Nexora.
+                Tous droits réservés.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+
+
+<!-- =================================
+     JAVASCRIPT : NAVIGATION SANS RECHARGEMENT
+================================== -->
+
+<script>
+window.NEXORA_PRO_ACTIVE = false; // À remplacer par une validation serveur après paiement réel.
+const navButtons = document.querySelectorAll(".nav-button");
+const pages = document.querySelectorAll(".page");
+const goButtons = document.querySelectorAll("[data-go]");
+
+function showPage(pageId) {
+    const targetPage = document.getElementById(pageId);
+
+    if (!targetPage) return;
+
+    // Accès premium : l'état doit être confirmé par le serveur de paiement.
+    const premiumPages = ["createurs", "web", "studio"];
+    if (premiumPages.includes(pageId) && !window.NEXORA_PRO_ACTIVE) {
+        pageId = "pro";
+        const notice = document.getElementById("proAccessNotice");
+        if (notice) notice.hidden = false;
+    }
+
+    // Masque toutes les pages
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    // Affiche la page choisie
+    targetPage.classList.add("active");
+
+    // Actualise l'onglet sélectionné
+    navButtons.forEach(button => {
+        const isActive = button.dataset.page === pageId;
+
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-current", isActive ? "page" : "false");
+    });
+
+    // Retour en haut sans recharger le site
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// Les paiements ne sont pas encore connectés : ne jamais activer PRO côté navigateur.
+document.querySelectorAll(".buy-button[data-plan]").forEach(button => {
+    button.addEventListener("click", () => {
+        const notice = button.parentElement.querySelector(".buy-notice");
+        notice.textContent = "Le paiement en ligne n'est pas encore activé. Aucun montant ne sera prélevé.";
+        notice.hidden = false;
+    });
+});
+
+// Clic sur les onglets
+navButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+// Navigation des boutons de compte
+document.querySelectorAll(".account-button").forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+// Clic sur les boutons de l'accueil
+goButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.go);
+    });
+});
+
+// Année automatique dans le footer
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+/* FORMULAIRE DE CONNEXION — SERVEUR FLASK */
+document.getElementById("loginForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("loginEmail").value.trim();
+    const message = document.getElementById("loginMessage");
+    const button = event.currentTarget.querySelector('button[type="submit"]');
+    message.hidden = false;
+    message.textContent = "Connexion en cours…";
+    button.disabled = true;
+    try {
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email, password: document.getElementById("loginPassword").value})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Connexion impossible.");
+        document.getElementById("loginPassword").value = "";
+await refreshAccountStatus();
+showPage("accueil");
+    } catch (error) {
+        message.textContent = error.message || "Impossible de joindre le serveur. Vérifie que Flask est lancé.";
+    } finally {
+        button.disabled = false;
+    }
+});
+
+
+
+/* INSCRIPTION — CREATION REELLE VIA FLASK */
+document.getElementById("signupEmailForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("signupEmail");
+    if (!email.checkValidity()) { email.reportValidity(); return; }
+    document.getElementById("signupStep1").hidden = true;
+    document.getElementById("signupStep2").hidden = false;
+    document.getElementById("signupUsername").focus();
+});
+
+/* Envoi de l'adresse, du pseudo et du mot de passe au serveur */
+document.getElementById("signupDetailsForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = document.getElementById("signupEmail").value.trim();
+    const username = document.getElementById("signupUsername").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const message = document.getElementById("signupMessage");
+    const button = event.currentTarget.querySelector('button[type="submit"]');
+    if (!event.currentTarget.checkValidity()) { event.currentTarget.reportValidity(); return; }
+    message.hidden = false;
+    message.textContent = "Création du compte…";
+    button.disabled = true;
+    try {
+        const response = await fetch("/api/register", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email, username, password})
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Création du compte impossible.");
+        message.textContent = "Compte créé ! Bienvenue " + data.username + ". Tu es maintenant connecté.";
+        document.getElementById("signupPassword").value = "";
+        await refreshAccountStatus();
+    } catch (error) {
+        message.textContent = error.message || "Impossible de joindre le serveur. Vérifie que Flask est lancé.";
+    } finally {
+        button.disabled = false;
+    }
+});
+
+
+async function refreshAccountStatus() {
+    try {
+        const response = await fetch("/api/me");
+        const data = await response.json();
+
+        const loginButton = document.getElementById("loginNavButton");
+        const signupButton = document.getElementById("signupNavButton");
+        const profileButton = document.getElementById("profileNavButton");
+        const profileUsername = document.getElementById("profileNavUsername");
+
+        if (!loginButton || !signupButton || !profileButton || !profileUsername) {
+            return;
+        }
+
+        if (data.logged_in) {
+            loginButton.hidden = true;
+            signupButton.hidden = true;
+            profileButton.hidden = false;
+            profileUsername.textContent = data.username;
+        } else {
+            loginButton.hidden = false;
+            signupButton.hidden = false;
+            profileButton.hidden = true;
+        }
+    } catch (error) {
+        console.error("Impossible de vérifier la connexion :", error);
+    }
+}
+
+refreshAccountStatus();
+
+
+/* LIENS DE NAVIGATION DU FOOTER */
+
+document.querySelectorAll(".nexora-footer [data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+        showPage(button.dataset.page);
+    });
+});
+
+/* ANNEE AUTOMATIQUE */
+
+document.getElementById("footerYear").textContent =
+    new Date().getFullYear();
+
+const contrastToggle = document.getElementById("contrastToggle");
+const nexoraLogo = document.getElementById("nexoraLogo");
+
+if (contrastToggle) {
+    contrastToggle.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+
+        const isLight = document.body.classList.contains("light-mode");
+
+        // Changer le logo selon le thème
+        if (nexoraLogo) {
+            nexoraLogo.src = isLight
+                ? nexoraLogo.dataset.lightLogo
+                : nexoraLogo.dataset.darkLogo;
+        }
+
+        // Changer le texte du bouton
+        contrastToggle.textContent = isLight
+            ? "🌙 Mode sombre"
+            : "☀️ Mode clair";
+    });
+}
+
+// NEXORA STUDIO — première version de prévisualisation
+(() => {
+    const fileInput = document.getElementById("studioFile");
+    if (!fileInput) return;
+    const video = document.getElementById("studioVideo");
+    const placeholder = document.getElementById("studioPlaceholder");
+    const titleInput = document.getElementById("studioTitle");
+    const overlay = document.getElementById("studioOverlay");
+    const colorInput = document.getElementById("studioTitleColor");
+    const sizeInput = document.getElementById("studioTitleSize");
+    const playButton = document.getElementById("studioPlay");
+    const seek = document.getElementById("studioSeek");
+    const timeLabel = document.getElementById("studioTime");
+    const durationLabel = document.getElementById("studioDuration");
+    const clip = document.getElementById("studioClip");
+    const status = document.getElementById("studioStatus");
+    let mediaUrl = null;
+    let mediaName = "";
+
+    const formatTime = seconds => {
+        if (!Number.isFinite(seconds)) return "00:00";
+        const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+        const s = Math.floor(seconds % 60).toString().padStart(2, "0");
+        return `${m}:${s}`;
+    };
+
+    fileInput.addEventListener("change", () => {
+        const file = fileInput.files && fileInput.files[0];
+        if (!file) return;
+        if (mediaUrl) URL.revokeObjectURL(mediaUrl);
+        mediaUrl = URL.createObjectURL(file);
+        mediaName = file.name;
+        video.src = mediaUrl;
+        video.style.display = "block";
+        placeholder.style.display = "none";
+        clip.textContent = file.name;
+        status.textContent = "Vidéo importée. Tu peux lancer la lecture et ajouter un titre.";
+        video.load();
+    });
+
+    titleInput.addEventListener("input", () => { overlay.textContent = titleInput.value; });
+    colorInput.addEventListener("input", () => { overlay.style.color = colorInput.value; });
+    sizeInput.addEventListener("change", () => { overlay.style.fontSize = `${sizeInput.value}px`; });
+
+    playButton.addEventListener("click", async () => {
+        if (!video.src) { status.textContent = "Importe d'abord une vidéo."; return; }
+        if (video.paused) {
+            try { await video.play(); } catch (_) { status.textContent = "La lecture n'a pas pu démarrer."; }
+        } else video.pause();
+    });
+    video.addEventListener("play", () => { playButton.textContent = "Ⅱ Pause"; });
+    video.addEventListener("pause", () => { playButton.textContent = "▶ Lire"; });
+    video.addEventListener("loadedmetadata", () => {
+        durationLabel.textContent = formatTime(video.duration);
+        seek.max = Math.max(1, Math.floor(video.duration));
+    });
+    video.addEventListener("timeupdate", () => {
+        timeLabel.textContent = formatTime(video.currentTime);
+        if (Number.isFinite(video.duration) && video.duration > 0) seek.value = Math.floor(video.currentTime);
+    });
+    seek.addEventListener("input", () => { if (video.duration) video.currentTime = Number(seek.value); });
+
+    document.getElementById("studioSave").addEventListener("click", () => {
+        const project = {
+            app: "Nexora Studio",
+            version: 1,
+            mediaFileName: mediaName,
+            title: titleInput.value,
+            titleColor: colorInput.value,
+            titleSize: Number(sizeInput.value)
+        };
+        const blob = new Blob([JSON.stringify(project, null, 2)], {type:"application/json"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "mon-projet-nexora.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        status.textContent = "Réglages du projet enregistrés.";
+    });
+
+    document.getElementById("studioReset").addEventListener("click", () => {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+        if (mediaUrl) URL.revokeObjectURL(mediaUrl);
+        mediaUrl = null;
+        mediaName = "";
+        fileInput.value = "";
+        titleInput.value = "";
+        overlay.textContent = "";
+        overlay.style.color = "#ffffff";
+        overlay.style.fontSize = "36px";
+        colorInput.value = "#ffffff";
+        sizeInput.value = "36";
+        video.style.display = "none";
+        placeholder.style.display = "block";
+        clip.textContent = "Aucun média importé";
+        seek.value = 0;
+        timeLabel.textContent = "00:00";
+        durationLabel.textContent = "00:00";
+        status.textContent = "Projet réinitialisé.";
+    });
+})();
+
+/* ===== NEXORA AI : CHAT DE DEMONSTRATION ===== */
+
+const aiForm = document.getElementById("aiForm");
+const aiInput = document.getElementById("aiInput");
+const aiChat = document.getElementById("aiChat");
+
+function aiAddMessage(text, sender) {
+    const message = document.createElement("div");
+    message.className = "ai-message " +
+        (sender === "user" ? "ai-user" : "ai-bot");
+
+    const bubble = document.createElement("div");
+    bubble.className = "ai-bubble";
+
+    // Affiche le texte sans interpréter le HTML saisi.
+    bubble.textContent = text;
+
+    if (sender === "bot") {
+        const avatar = document.createElement("div");
+        avatar.className = "ai-avatar";
+        avatar.textContent = "N";
+        message.appendChild(avatar);
+    }
+
+    message.appendChild(bubble);
+    aiChat.appendChild(message);
+    aiChat.scrollTop = aiChat.scrollHeight;
+}
+
+
+function aiDemoReply(text) {
+    const lowerText = text.toLowerCase();
+    const replies = [];
+
+    if (
+        lowerText.includes("site") ||
+        lowerText.includes("html") ||
+        lowerText.includes("css") ||
+        lowerText.includes("javascript")
+    ) {
+        replies.push(
+            "Pour ton site web, on peut avancer étape par étape :\n\n1. HTML pour la structure.\n2. CSS pour le design.\n3. JavaScript pour les interactions.\n\nTu veux travailler sur quelle partie en premier ?"
+        );
+    }
+
+    if (
+        lowerText.includes("code") ||
+        lowerText.includes("programmer") ||
+        lowerText.includes("développer") ||
+        lowerText.includes("python")
+    ) {
+        replies.push(
+            "On va progresser en programmation ! Le plus simple est de partir d'un petit objectif, puis de tester le code.\n\nTu préfères apprendre les bases, corriger un bug ou créer un petit projet ?"
+        );
+    }
+
+    if (
+        lowerText.includes("projet") ||
+        lowerText.includes("organiser") ||
+        lowerText.includes("planning")
+    ) {
+        replies.push(
+            "Pour organiser ton projet, commence par noter le résultat que tu veux obtenir.\n\nEnsuite, découpe-le en petites tâches et choisis la première action réalisable aujourd'hui.\n\nQuel est ton objectif principal ?"
+        );
+    }
+
+    if (
+        lowerText.includes("devoir") ||
+        lowerText.includes("cours") ||
+        lowerText.includes("exercice") ||
+        lowerText.includes("réviser")
+    ) {
+        replies.push(
+            "Je peux t'aider à comprendre ton cours ou à aborder un exercice étape par étape.\n\nEnvoie la consigne ou explique ce qui te bloque, et on cherchera la méthode ensemble."
+        );
+    }
+
+    if (
+        lowerText.includes("bonjour") ||
+        lowerText.includes("salut") ||
+        lowerText.includes("coucou")
+    ) {
+        replies.push(
+            "Salut ! 😊 Bienvenue sur Nexora AI. Tu peux me parler d'un site web, de programmation, d'un projet ou d'un sujet à apprendre. Par quoi commence-t-on ?"
+        );
+    }
+
+    if (
+        lowerText.includes("merci") ||
+        lowerText.includes("super") ||
+        lowerText.includes("génial")
+    ) {
+        replies.push(
+            "Avec plaisir ! 😊 On continue quand tu veux. Quelle est la prochaine étape que tu aimerais accomplir ?"
+        );
+    }
+
+    if (replies.length > 0) {
+        return replies[Math.floor(Math.random() * replies.length)];
+    }
+
+    return (
+        "Merci pour ton message ! 😊 Je suis encore en version de démonstration, mais je peux déjà t'aider à réfléchir à un site web, apprendre à coder, organiser un projet ou réviser un cours.\n\nDis-moi ce que tu veux obtenir et ce qui te bloque : on cherchera ensemble une première étape concrète."
+    );
+}
+
+
+function aiSendMessage(text) {
+    const cleanText = text.trim();
+
+    if (!cleanText) return;
+
+    aiAddMessage(cleanText, "user");
+    aiInput.value = "";
+    aiInput.focus();
+
+    // Réponse de démonstration : ce n'est pas encore une véritable IA.
+    aiAddMessage(aiDemoReply(cleanText), "bot");
+}
+if (aiForm && aiInput && aiChat) {
+    aiForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        aiSendMessage(aiInput.value);
+    });
+
+    aiInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            aiForm.requestSubmit();
+        }
+    });
+}
+function aiUseSuggestion(text) {
+    const input = document.getElementById("aiInput");
+
+    if (!input) return;
+
+    input.value = text;
+    input.focus();
+    aiSendMessage(text);
+}
+
+</script>
+
+
+<script>
+(function(){
+const games=[
+{n:"Blox Fruits",c:"Action / aventure",d:"Progression, fruits, combats et exploration.",tips:["Choisis un fruit adapté à ton style : mobilité, dégâts ou soutien.","Concentre tes statistiques sur les équipements que tu utilises vraiment.","Garde des quêtes adaptées à ton niveau pour progresser régulièrement.","En combat, varie tes déplacements et évite d'utiliser toutes tes capacités d'un coup."]},
+{n:"Brawl Stars",c:"Compétition",d:"Combattants, modes de jeu et progression.",tips:["Choisis ton combattant selon la carte et le mode.","Utilise les murs et les obstacles pour te protéger.","En équipe, garde l'objectif en tête au lieu de poursuivre un adversaire trop loin.","Améliore d'abord quelques combattants que tu connais bien."]},
+{n:"Roblox",c:"Sandbox",d:"Découverte d'expériences et création.",tips:["Essaie plusieurs expériences avant de choisir celles que tu préfères.","Vérifie tes paramètres de confidentialité et ne partage pas tes informations personnelles.","Prends le temps d'apprendre les commandes propres à chaque jeu.","Pour créer, commence par un petit projet avant d'ajouter des fonctions."]},
+{n:"The Crew 2",c:"Sport / conduite",d:"Conduite, véhicules et événements.",tips:["Choisis un véhicule adapté au type d'épreuve.","Freine avant le virage et accélère progressivement en sortie.","Refais les événements que tu maîtrises pour améliorer ton garage.","Teste plusieurs véhicules avant de choisir tes préférés."]},
+{n:"Minecraft",c:"Sandbox",d:"Survie, construction et exploration.",tips:["Prépare un abri et de la nourriture avant de partir loin.","Range tes coffres par catégories pour retrouver tes ressources.","Prépare ton équipement avant une longue exploration.","Commence par une base pratique, puis améliore-la."]},
+{n:"Fortnite",c:"Compétition",d:"Construction, stratégie et Battle Royale.",tips:["Atterris dans une zone que tu connais bien.","Évite les combats inutiles si tu manques de ressources ou si ta position est mauvaise.","Écoute les sons pour repérer les déplacements autour de toi.","Après une partie, choisis un point précis à améliorer."]},
+{n:"Rocket League",c:"Sport / conduite",d:"Voitures, ballon et jeu d'équipe.",tips:["Travaille les tirs simples et les contrôles avant les techniques avancées.","Évite de foncer sur le ballon si ton coéquipier est mieux placé.","Reviens en défense après une tentative offensive.","Utilise l'entraînement libre pour travailler tes trajectoires."]},
+{n:"EA Sports FC",c:"Sport / conduite",d:"Football, tactique et maîtrise du ballon.",tips:["Varie les attaques avec des passes courtes et des changements d'aile.","En défense, protège les espaces au lieu de sortir constamment un joueur.","Choisis une formation adaptée à ta façon de jouer.","Observe les buts encaissés pour comprendre où tu laisses des espaces."]},
+{n:"Valorant",c:"Compétition",d:"Tactique, précision et coopération.",tips:["Garde ton viseur à hauteur de tête.","Donne à ton équipe des informations courtes et utiles.","Apprends quelques positions solides sur chaque carte.","Travaille ton placement et ta précision sans te précipiter."]},
+{n:"Genshin Impact",c:"RPG",d:"Exploration, équipes et progression.",tips:["Compose une équipe dont les personnages fonctionnent bien ensemble.","Améliore progressivement les talents et les armes de tes personnages principaux.","Explore à ton rythme et récupère les ressources sur ton chemin.","Évite de disperser tes ressources sur trop de personnages."]},
+{n:"Call of Duty: Mobile",c:"Compétition",d:"Modes multijoueurs et stratégie.",tips:["Garde une configuration confortable le temps de bien la maîtriser.","Apprends les cartes et les lignes de vue.","Adapte ton rôle à l'objectif du mode et à ton équipe.","Après une partie, regarde si ton placement aurait pu être meilleur."]},
+{n:"Among Us",c:"Action / aventure",d:"Observation, déduction et communication.",tips:["Observe les déplacements avant de tirer des conclusions.","Quand tu expliques un soupçon, donne des faits précis.","Écoute les explications des autres joueurs.","Pose des questions simples pour clarifier les situations."]},
+{n:"The Sims 4",c:"Sandbox",d:"Création, construction et simulation de vie.",tips:["Choisis une petite histoire ou un objectif pour ta partie.","Pars d'une pièce simple puis personnalise-la.","Prévois ton budget avant de construire une grande maison.","Sauvegarde régulièrement tes créations importantes."]}
+];
+const $=id=>document.getElementById(id);
+const grid=$("gcGames"),detail=$("gcDetail"),search=$("gcSearch"),category=$("gcCategory"),noteGame=$("gcNoteGame");
+if(!grid||!detail||!search||!category||!noteGame)return;
+let selected=games[0].n;
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function showGame(g){selected=g.n;detail.innerHTML='<div class="gc-detail-mark">N</div><small class="gc-kicker">'+esc(g.c)+'</small><h2>'+esc(g.n)+'</h2><p>'+esc(g.d)+'</p><h3>Quelques conseils</h3>'+g.tips.map((t,i)=>'<div class="gc-tip"><b>'+(i+1)+'.</b> '+esc(t)+'</div>').join('');render()}
+function render(){const q=search.value.trim().toLowerCase();const list=games.filter(g=>(category.value==="Tous"||g.c===category.value)&&(g.n.toLowerCase().includes(q)||g.d.toLowerCase().includes(q)||g.tips.some(t=>t.toLowerCase().includes(q))));grid.innerHTML=list.length?list.map((g,i)=>'<article class="gc-card '+(g.n===selected?'active':'')+'" data-game="'+esc(g.n)+'"><div class="gc-card-mark">'+String(i+1).padStart(2,"0")+'</div><small>'+esc(g.c)+'</small><h3>'+esc(g.n)+'</h3><p>'+esc(g.d)+'</p></article>').join(''):'<div class="gc-empty">Aucun jeu trouvé. Essaie un autre mot-clé.</div>';grid.querySelectorAll(".gc-card").forEach(el=>el.addEventListener("click",()=>showGame(games.find(g=>g.n===el.dataset.game))))}
+games.forEach(g=>{const o=document.createElement("option");o.value=g.n;o.textContent=g.n;noteGame.appendChild(o)});
+search.addEventListener("input",render);category.addEventListener("change",render);
+function readNotes(){try{return JSON.parse(localStorage.getItem("nexora-game-notes")||"[]")}catch(e){return []}}
+function showNotes(){$("gcNotes").innerHTML=readNotes().map(n=>'<div class="gc-saved-item"><b>'+esc(n.game)+'</b><br>'+esc(n.text)+'</div>').join("")||'<p class="gc-empty">Aucune note pour le moment.</p>'}
+$("gcSaveNote").addEventListener("click",()=>{const text=$("gcNoteText").value.trim();if(!text)return;const notes=readNotes();notes.unshift({game:noteGame.value,text});localStorage.setItem("nexora-game-notes",JSON.stringify(notes.slice(0,30)));$("gcNoteText").value="";showNotes()});
+render();showGame(games[0]);showNotes();
+})();
+</script>
+
+</body>
+</html>
+<style>
+/* Ajustements demandés */
+.site-header { position: relative !important; top: auto !important; }
+.header-brand { position: static !important; }
+.header-brand img { display:block; max-height:64px; width:auto; object-fit:contain; }
+.footer-social-icons a svg { width:19px; height:19px; display:block; }
+.feature-card { width:100%; text-align:center; font:inherit; color:inherit; cursor:pointer; }
+.feature-card:hover { transform:translateY(-5px); border-color:rgba(22,137,237,.35); }
+.feature-card .feature-icon svg { width:29px; height:29px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.feature-link { display:inline-block; margin-top:15px; color:#1689ed; font-size:12px; font-weight:700; }
+</style>
+
+<style>
+/* Styles de Nexora AI repris du fichier fourni */
+.nexora-ai::before {
+content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(36, 155, 255, 0.8),
+        transparent
+    );
+    pointer-events: none;
+}
+.ai-header {
+display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+.ai-symbol {
+display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border: 1px solid rgba(50, 190, 255, 0.55);
+    border-radius: 18px;
+    background: linear-gradient(
+        145deg,
+        rgba(0, 130, 255, 0.24),
+        rgba(0, 35, 85, 0.55)
+    );
+    color: #55d8ff;
+    font-size: 32px;
+    box-shadow:
+        0 0 25px rgba(0, 145, 255, 0.2),
+        inset 0 0 18px rgba(0, 145, 255, 0.08);
+}
+.ai-header h1 {
+margin: 0 0 5px;
+    font-size: clamp(25px, 4vw, 35px);
+    letter-spacing: -0.7px;
+    text-shadow: 0 0 22px rgba(30, 145, 255, 0.15);
+}
+.ai-header p {
+margin: 0;
+    color: #aebfd9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.ai-status {
+display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(66, 230, 164, 0.18);
+    border-radius: 999px;
+    background: rgba(25, 180, 120, 0.06);
+    color: #b6d8d2;
+    font-size: 12px;
+}
+.ai-status-dot {
+width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #42e6a4;
+    box-shadow: 0 0 12px rgba(66, 230, 164, 0.7);
+}
+.ai-chat {
+min-height: 310px;
+    max-height: 470px;
+    overflow-y: auto;
+    padding: 22px;
+    border: 1px solid rgba(65, 145, 255, 0.22);
+    border-radius: 20px;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(0, 100, 255, 0.08), transparent 50%),
+        rgba(2, 10, 25, 0.8);
+    box-shadow: inset 0 0 35px rgba(0, 65, 150, 0.07);
+    scrollbar-color: #176acb #071225;
+    scrollbar-width: thin;
+}
+.ai-message {
+display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.ai-avatar {
+display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid rgba(80, 190, 255, 0.35);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #087bff, #11c8e8);
+    color: white;
+    font-weight: 800;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.22);
+}
+.ai-bubble {
+max-width: 85%;
+    padding: 16px 18px;
+    border: 1px solid rgba(90, 155, 235, 0.19);
+    border-radius: 5px 17px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 65, 115, 0.32),
+        rgba(10, 25, 50, 0.65)
+    );
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+.ai-bubble strong {
+color: #59d8ff;
+}
+.ai-bubble p {
+margin: 9px 0 0;
+    color: #d5e2f5;
+}
+.ai-user {
+justify-content: flex-end;
+}
+.ai-user .ai-bubble {
+border-color: rgba(35, 160, 255, 0.35);
+    border-radius: 17px 5px 17px 17px;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 105, 235, 0.3),
+        rgba(0, 55, 125, 0.28)
+    );
+}
+.ai-suggestions {
+display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+.ai-suggestion {
+padding: 11px 15px;
+    border: 1px solid rgba(65, 155, 255, 0.3);
+    border-radius: 13px;
+    background: rgba(15, 65, 125, 0.2);
+    color: #dceaff;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+.ai-suggestion:hover {
+background: rgba(20, 110, 220, 0.25);
+    border-color: rgba(70, 190, 255, 0.75);
+    box-shadow: 0 0 18px rgba(0, 120, 255, 0.12);
+    transform: translateY(-2px);
+}
+.ai-input-area {
+display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid rgba(55, 155, 255, 0.4);
+    border-radius: 19px;
+    background: rgba(2, 10, 25, 0.88);
+    box-shadow:
+        0 0 25px rgba(0, 100, 255, 0.08),
+        inset 0 0 18px rgba(0, 75, 160, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ai-input-area:focus-within {
+border-color: rgba(55, 185, 255, 0.8);
+    box-shadow:
+        0 0 25px rgba(0, 125, 255, 0.13),
+        inset 0 0 18px rgba(0, 75, 160, 0.06);
+}
+.ai-input-area textarea {
+flex: 1;
+    min-width: 0;
+    max-height: 140px;
+    resize: vertical;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #f4f7ff;
+    font: inherit;
+    line-height: 1.6;
+}
+.ai-input-area textarea::placeholder {
+color: #8298b9;
+}
+.ai-input-area button {
+display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border: 1px solid rgba(130, 220, 255, 0.3);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #087bff, #12c8e8);
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0, 130, 255, 0.2);
+    transition: filter 0.2s, transform 0.2s;
+}
+.ai-input-area button:hover {
+filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+.ai-disclaimer {
+margin-top: 15px;
+    color: #8498b8;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+.nexora-ai {
+width: 94%;
+        margin: 22px auto;
+        padding: 15px;
+        border-radius: 21px;
+}
+.ai-header {
+gap: 12px;
+}
+.ai-status {
+margin-left: 0;
+}
+.ai-chat {
+min-height: 280px;
+        padding: 14px;
+}
+.ai-message {
+gap: 9px;
+}
+.ai-avatar {
+width: 33px;
+        height: 33px;
+        border-radius: 11px;
+}
+.ai-bubble {
+max-width: 95%;
+        padding: 13px;
+        font-size: 14px;
+}
+.ai-suggestions {
+gap: 8px;
+}
+.ai-suggestion {
+padding: 9px 11px;
+        font-size: 12px;
+}
+.ai-input-area {
+gap: 8px;
+        padding: 8px;
+}
+.ai-input-area button {
+width: 41px;
+        height: 41px;
+}
+.ai-status {
+margin-left: 0;
+}
+.ai-chat {
+padding: 14px;
+}
+.ai-bubble {
+max-width: 95%;
+        padding: 13px;
+}
+.ai-suggestion {
+font-size: 12px;
+}
+/* Contenus et cartes */
+body.light-mode .page,
+body.light-mode .nexora-ai,
+body.light-mode .ai-chat,
+body.light-mode .ai-bubble {
+background-color: #ffffff;
+    color: #17213a;
+}
+</style>
